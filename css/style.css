@@ -4,6 +4,8 @@ body {
   background-color: #0d1117;
   color: #c9d1d9;
   scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 header {
@@ -40,6 +42,17 @@ header {
   max-width: 900px;
   box-shadow: 0 0 15px #010409;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
 }
 
 .comment  { color: #8b949e; }
@@ -59,12 +72,19 @@ header {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 .gallery img {
   width: 200px;
   border: 2px solid #30363d;
   border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #58a6ff;
 }
 
 footer {
@@ -78,30 +98,22 @@ footer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
 .blink::after {
   content: '_';
   animation: blink 1s infinite step-start;
-}
-
-.gallery img {
-  width: 200px;
-  border: 2px solid #30363d;
-  border-radius: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #58a6ff;
 }
 
 .gato-mode {
   background-color: #fff0f5;
   color: #4b0082;
 }
+
 .gato-mode .terminal {
   background-color: #ffe6f0;
   border-color: #ff69b4;
 }
+
 .gato-mode .menu a {
   color: #ff69b4;
 }
@@ -116,7 +128,9 @@ footer {
   width: 80%;
   padding: 0.2rem;
   outline: none;
+  max-width: 100%;
 }
+
 #terminalOutput {
   margin-top: 1rem;
   color: #ffa198;
@@ -128,6 +142,7 @@ footer {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
+
 .terminal-hint code {
   color: #a5d6ff;
   background-color: #21262d;
@@ -141,10 +156,12 @@ footer {
   color: #8b949e;
   font-size: 0.9rem;
 }
+
 .easter-egg a {
   color: #58a6ff;
   text-decoration: none;
 }
+
 .easter-egg a:hover {
   text-decoration: underline;
 }
@@ -158,6 +175,7 @@ footer {
   padding: 0.2rem 0.4rem;
   margin-top: 0.5rem;
   width: 100%;
+  max-width: 100%;
 }
 
 #minigame button {
@@ -189,6 +207,7 @@ footer {
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
   color: #c9d1d9;
+  flex-wrap: wrap;
 }
 
 .code-input-wrapper label {
@@ -204,4 +223,61 @@ footer {
   font-family: inherit;
   font-size: inherit;
   border-radius: 4px;
+  max-width: 100%;
+}
+
+/* Responsividade geral para telas pequenas */
+@media (max-width: 768px) {
+  .menu {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .terminal {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 0.95rem;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .countdown {
+    font-size: 1.1rem;
+  }
+
+  .code-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .code-input-wrapper label {
+    margin-bottom: 0.4rem;
+  }
+
+  .fake-terminal input,
+  #minigame input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+  }
+
+  button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    margin: 2rem 1rem;
+  }
 }
