@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>git init nosso-amor ❤️</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="menu">
+      <a href="#inicio">~/inicio</a>
+      <a href="#tempo">~/tempo</a>
+      <a href="#memorias">~/memorias</a>
+      <a href="#changelog">~/changelog</a>
+      <a href="#readme">~/readme.md</a>
+      <a href="#mensagem">~/mensagem</a>
+      <a href="#terminal">~/terminal</a>
+      <a href="#minigame">~/minigame</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="terminal" id="inicio">
+      <span class="comment"># Como tudo começou</span><br>
+      <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> pessoas_que_achei_interessante<br>
+      <span class="keyword">WHERE</span> interesses <span class="keyword">LIKE</span> <span class="string">'%café, gato, dev%'</span>;<br>
+      <span class="comment">-- Resultado: <span class="love">Raquel Dettoni ❤️</span></span><br><br>
+
+      <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> nossos_encontros<br>
+      <span class="keyword">WHERE</span> disponibilidade = <span class="string">'aberta'</span><br>
+      <span class="keyword">  AND</span> vontade = <span class="string">'muita'</span>;<br>
+      <span class="comment">-- Resultado: MATCH ENCONTRADO</span><br><br>
+
+      <span class="comment"># "rollback não faz parte do meu stack 😉"</span><br>
+      <span class="comment"># "pr já tá aberto, só falta você dar o merge"</span>
+    </section>
+
+    <section class="terminal" id="tempo">
+      <span class="comment"># nossos caminhos se cruzaram faz um tempinho...</span>
+      <div class="countdown blink" id="contador"></div>
+    </section>
+
+    <section class="terminal" id="memorias">
+      <span class="comment"># Algumas memórias em forma de foto</span>
+      <div class="gallery">
+        <img src="img/foto1.jpg" alt="Foto juntos">
+        <img src="img/foto2.jpg" alt="Sorrindo">
+        <img src="img/foto3.jpg" alt="Momentos">
+      </div>
+    </section>
+
+    <section class="terminal" id="mensagem">
+      <span class="comment"># Mensagem pra você</span>
+      <pre>
+$ echo "Raquel, você foi a query mais inesperada que mudou todos os meus dados internos.
+Não sei se foi bug do destino, ou se era a feature que faltava.
+Mas desde aquele SELECT mágico, cada commit nosso me faz querer viver um deploy eterno contigo. ❤️"
+      </pre>
+      <p class="easter-egg">
+        ps: <a href="404" title="isso não é um bug... é um destino">clique aqui</a> só se estiver pronta ❤️
+      </p>
+    </section>
+
+    <section class="terminal" id="readme">
+      <span class="comment"># README.md</span>
+      <pre>
+## Descrição
+Este repositório contém um relacionamento incrível, mantido com ❤️ por Raquel e Vinicius.
+
+## Como contribuir
+- Dê risadas com frequência
+- Faça commits de carinho
+- Nunca faça git push com raiva
+
+## Licença
+MIT ❤️ Forever
+      </pre>
+    </section>
+
+    <section class="terminal" id="terminal">
+      <span class="comment"># Terminal interativo</span>
+      <p class="terminal-hint">// Dica: tente comandos como <code>amor</code>, <code>raquel</code>, <code>git push</code>, <code>vinicius</code>, <code>café</code>, <code>segredo</code>...</p>
+      <div class="fake-terminal">
+        <label>$ <input type="text" id="terminalInput" placeholder="Digite algo romântico..." autocomplete="off" /></label>
+        <pre id="terminalOutput"></pre>
+      </div>
+    </section>
+
+    <section class="terminal" id="minigame">
+      <span class="comment"># Mini game: Valide a compatibilidade</span>
+      <p class="terminal-hint">// Escreva uma linha de código que retorne true se p1 e p2 forem "Raquel" e "Vinicius" (em qualquer ordem)</p>
+      <pre>
+function saoCompatíveis(p1: string, p2: string): boolean {
+  // return ...
+}
+      </pre>
+      <div class="code-input-wrapper">
+        <label for="codigo">$ <span style="color:#ff7b72;"></span></label>
+        <input type="text" id="codigo"  />
+      </div>
+      <button onclick="avaliarCompatibilidade()">Testar</button>
+      <pre id="saidaCompatibilidade"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>status: ❤️ committed</p>
+    <p>protected_branch: true</p>
+    <p>auto_merge: enabled</p>
+    <p>ci/cd: passando desde 26/06/2025</p>
+    <p>Deploy contínuo de carinho. ❤️</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
