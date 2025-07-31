@@ -17,6 +17,8 @@
       <a href="#mensagem">~/mensagem</a>
       <a href="#terminal">~/terminal</a>
       <a href="#minigame">~/minigame</a>
+      <a href="#conversa">~/conversa</a>
+      <a href="#constelacao">~/constelacao</a>
     </nav>
   </header>
 
@@ -102,6 +104,21 @@ function saoCompatíveis(p1: string, p2: string): boolean {
       <button onclick="avaliarCompatibilidade()">Testar</button>
       <pre id="saidaCompatibilidade"></pre>
     </section>
+
+
+
+    <section class="terminal" id="conversa">
+      <span class="comment"># Nossa primeira conversa</span>
+      <div id="chatSimulado"></div>
+    </section>
+
+    <section class="terminal constellation" id="constelacao">
+      <span class="comment"># Constelação do nosso universo</span>
+      <div id="stars-container">
+        <h2 class="constellation-title">🌌 Raquel & Vinicius 🌌</h2>
+        <div id="particles-js"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -112,6 +129,7 @@ function saoCompatíveis(p1: string, p2: string): boolean {
     <p>Deploy contínuo de carinho. ❤️</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
