@@ -116,7 +116,7 @@ function simularConversa() {
   if (!container) return;
 
   let index = 0;
-  container.innerHTML = ""; // limpa antes de começar
+  container.innerHTML = ""; 
 
   function mostrarLinha() {
     if (index < linhasConversa.length) {
@@ -128,8 +128,7 @@ function simularConversa() {
       index++;
       setTimeout(mostrarLinha, 1800);
     } else {
-      // reinicia após alguns segundos
-      setTimeout(simularConversa, 4000);
+      setTimeout(simularConversa, 7000);
     }
   }
 
