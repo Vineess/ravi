@@ -337,3 +337,61 @@ footer {
   button { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
   footer { font-size: 0.85rem; margin: 2rem 1rem; }
 }
+
+/* Botão enviar flores */
+.btn-flores {
+  margin-top: 1rem;
+  background-color: #d466a7;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(212, 102, 167, 0.25);
+}
+.btn-flores:hover {
+  background-color: #e07bb5;
+}
+
+/* Contêiner e pétalas */
+#petalsContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; 
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Cada pétala */
+.petal {
+  position: absolute;
+  top: -10vh;
+  font-size: 24px;          
+  will-change: transform, opacity;
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: 1, infinite;
+  opacity: 0.95;
+}
+
+/* queda vertical */
+@keyframes fall {
+  0%   { transform: translate3d(var(--x, 0), -10vh, 0) rotate(0deg); opacity: 0.95; }
+  100% { transform: translate3d(var(--x, 0), 110vh, 0) rotate(360deg); opacity: 0.9; }
+}
+
+/* balanço lateral */
+@keyframes sway {
+  0%   { margin-left: 0; }
+  50%  { margin-left: 20px; }
+  100% { margin-left: 0; }
+}
+
+
+@media (max-width: 768px) {
+  .btn-flores {
+    width: 100%;
+  }
+}

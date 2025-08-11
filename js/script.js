@@ -143,30 +143,32 @@ function simularConversa() {
 window.addEventListener("DOMContentLoaded", simularConversa);
 
 // Constelação animada 
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 70 },
-    size: { value: 2 },
-    color: { value: "#a5d6ff" },
-    line_linked: {
-      enable: true,
-      distance: 120,
-      color: "#a5d6ff",
-      opacity: 0.4,
-      width: 1
+if (typeof particlesJS === "function") {
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 70 },
+      size: { value: 2 },
+      color: { value: "#a5d6ff" },
+      line_linked: {
+        enable: true,
+        distance: 120,
+        color: "#a5d6ff",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 0.6
+      }
     },
-    move: {
-      enable: true,
-      speed: 0.6
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" }
-    }
-  },
-  retina_detect: true
-});
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" }
+      }
+    },
+    retina_detect: true
+  });
+}
 
 // cards no mobile
 document.querySelectorAll('.flip-card').forEach((card) => {
@@ -174,9 +176,64 @@ document.querySelectorAll('.flip-card').forEach((card) => {
     if (card.classList.contains('flip')) {
       card.classList.remove('flip'); 
     } else {
-    
       document.querySelectorAll('.flip-card.flip').forEach(c => c.classList.remove('flip'));
       card.classList.add('flip'); 
     }
   });
 });
+
+// Chuva de pétalas 🌸
+(function setupPetals() {
+  const btn = document.getElementById('btnFlores');
+  const container = document.getElementById('petalsContainer');
+  if (!btn || !container) return;
+
+  let running = false; 
+
+  btn.addEventListener('click', () => {
+    if (running) return;
+    running = true;
+
+    const total = window.innerWidth < 768 ? 25 : 45; 
+    const frag = document.createDocumentFragment();
+
+    for (let i = 0; i < total; i++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = Math.random() < 0.8 ? '🌸' : '💮';
+
+      
+      const left = Math.random() * 100; 
+      p.style.left = `${left}vw`;
+
+      
+      const xJitter = (Math.random() * 40 - 20) + 'px';
+      p.style.setProperty('--x', xJitter);
+
+      // tamanho aleatório
+      const size = 18 + Math.random() * 18; 
+      p.style.fontSize = `${size}px`;
+
+      // duração e atraso
+      const dur = 6 + Math.random() * 5;    
+      const delay = Math.random() * 1.5;    
+      const swayDur = 2 + Math.random() * 2; 
+
+      p.style.animationDuration = `${dur}s, ${swayDur}s`;
+      p.style.animationDelay = `${delay}s, 0s`;
+
+      
+      p.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+     
+      p.addEventListener('animationend', () => p.remove());
+
+      frag.appendChild(p);
+    }
+
+    container.appendChild(frag);
+
+   
+    setTimeout(() => { running = false; }, 2000);
+  });
+})();
