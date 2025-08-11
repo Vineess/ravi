@@ -19,7 +19,7 @@ function atualizaContador() {
 atualizaContador();
 setInterval(atualizaContador, 1000);
 
-// Easter egg: Ctrl + G → modo gato fofo
+// Easter egg Ctrl + G 
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey && e.key.toLowerCase() === "g") {
     document.body.classList.toggle("gato-mode");
@@ -72,6 +72,12 @@ function avaliarCompatibilidade() {
   const linha = document.getElementById("codigo").value.trim();
   const saida = document.getElementById("saidaCompatibilidade");
 
+  // Validação simples
+  if (!/^return\s/.test(linha) || linha.length > 200) {
+    saida.textContent = "⚠️ A linha precisa começar com 'return' 😉";
+    return;
+  }
+
   const codigo = `
     return (function saoCompatíveis(p1, p2) {
       ${linha}
@@ -110,7 +116,6 @@ const linhasConversa = [
   'Vinicius: ótimo, vamos dar um jeito nisso então haahha'
 ];
 
-
 function simularConversa() {
   const container = document.getElementById("chatSimulado");
   if (!container) return;
@@ -137,7 +142,7 @@ function simularConversa() {
 
 window.addEventListener("DOMContentLoaded", simularConversa);
 
-// Constelação animada (particles.js)
+// Constelação animada 
 particlesJS("particles-js", {
   particles: {
     number: { value: 70 },
@@ -161,4 +166,17 @@ particlesJS("particles-js", {
     }
   },
   retina_detect: true
+});
+
+// cards no mobile
+document.querySelectorAll('.flip-card').forEach((card) => {
+  card.addEventListener('click', () => {
+    if (card.classList.contains('flip')) {
+      card.classList.remove('flip'); 
+    } else {
+    
+      document.querySelectorAll('.flip-card.flip').forEach(c => c.classList.remove('flip'));
+      card.classList.add('flip'); 
+    }
+  });
 });
