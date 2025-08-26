@@ -96,8 +96,9 @@ pre, code {
 .gallery.cards { gap: 1.2rem; }
 
 .flip-card {
-  width: 260px;
-  height: 340px;
+  width: 100%;
+  max-width: 260px;   /* limite no desktop */
+  aspect-ratio: 3/4;  /* proporção fixa */
   perspective: 1000px;
 }
 
@@ -136,7 +137,8 @@ pre, code {
 .flip-card-front img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;        /* cobre todo o card */
+  object-position: center;  /* centraliza a foto */
   display: block;
   margin: 0;
   padding: 0;
@@ -322,10 +324,22 @@ footer {
 
   .gallery img {
     width: 100%;
-    max-width: 150px;
+    max-width: 150px; /* mantém só para as imagens soltas da galeria */
   }
 
-  .flip-card { width: 200px; height: 260px; }
+  .flip-card {
+    max-width: 90%;
+    aspect-ratio: 3/4;
+    margin: 0 auto;
+  }
+
+  .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    max-width: unset;       /* <-- tira a limitação de 150px */
+    object-fit: cover;
+    object-position: center;
+  }
 
   .code-input-wrapper,
   .fake-terminal label {
@@ -407,7 +421,6 @@ footer {
   width: 100%;
   height: 100%;
 }
-
 
 @media (max-width: 768px) {
   .btn-flores {
